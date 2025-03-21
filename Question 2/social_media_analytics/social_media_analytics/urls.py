@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from analytics.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', top_users, name='top_users'),
+    path('posts/', top_or_latest_posts, name='top_posts'),
+    path('test/posts/<int:postid>/comments/', get_comments, name='get_comments'),
 ]
